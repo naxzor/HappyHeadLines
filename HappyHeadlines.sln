@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleService.Api", "ArticleService.Api\ArticleService.Api.csproj", "{B8C982BF-0DF5-42E9-9CE2-1339C4DD646F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleDatabase", "ArticleDatabase\ArticleDatabase.csproj", "{07C9BE58-E79C-4B37-ACF6-FEF3D858BDE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8C982BF-0DF5-42E9-9CE2-1339C4DD646F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C982BF-0DF5-42E9-9CE2-1339C4DD646F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C982BF-0DF5-42E9-9CE2-1339C4DD646F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C982BF-0DF5-42E9-9CE2-1339C4DD646F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C9BE58-E79C-4B37-ACF6-FEF3D858BDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C9BE58-E79C-4B37-ACF6-FEF3D858BDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C9BE58-E79C-4B37-ACF6-FEF3D858BDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C9BE58-E79C-4B37-ACF6-FEF3D858BDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
