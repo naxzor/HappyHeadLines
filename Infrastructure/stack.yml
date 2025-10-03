@@ -1,0 +1,38 @@
+version: "3.9"
+
+networks:
+  edge: { driver: overlay }
+  app:  { driver: overlay }
+
+configs:
+  nginx_conf:
+    file: ./nginx.conf
+
+services:
+  lb:
+    image: nginx:alpine
+    configs:
+      - source: nginx_conf
+        target: /etc/nginx/nginx.conf
+    ports: ["8080:80"]
+    networks: [edge, app]
+    deploy: { replicas: 1 }
+
+  article-service:
+    image: hhnews/articlesvc:1.2
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__AF:     "Host=host.docker.internal;Port=5435;Database=news_af;Username=postgres;Password=1234"
+      ConnectionStrings__AN:     "Host=host.docker.internal;Port=5435;Database=news_an;Username=postgres;Password=1234"
+      ConnectionStrings__AS:     "Host=host.docker.internal;Port=5435;Database=news_as;Username=postgres;Password=1234"
+      ConnectionStrings__EU:     "Host=host.docker.internal;Port=5435;Database=news_eu;Username=postgres;Password=1234"
+      ConnectionStrings__NA:     "Host=host.docker.internal;Port=5435;Database=news_na;Username=postgres;Password=1234"
+      ConnectionStrings__OC:     "Host=host.docker.internal;Port=5435;Database=news_oc;Username=postgres;Password=1234"
+      ConnectionStrings__SA:     "Host=host.docker.internal;Port=5435;Database=news_sa;Username=postgres;Password=1234"
+      ConnectionStrings__GLOBAL: "Host=host.docker.internal;Port=5435;Database=news_global;Username=postgres;Password=1234"
+    networks: [app]
+    deploy:
+      replicas: 3
+      restart_policy: { condition: on-failure }
+      update_config: { order: start-first, parallelism: 1, delay: 5s }
+      
