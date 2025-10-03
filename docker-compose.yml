@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  postgres_news:
+    image: postgres:16-alpine
+    container_name: hh-postgres
+    restart: unless-stopped
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: news_eu
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - hh_pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+
+  pgadmin_news:
+    image: dpage/pgadmin4:8
+    container_name: hh-pgadmin
+    restart: unless-stopped
+    ports:
+      - "8001:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 1234@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+    depends_on:
+      postgres_news:
+        condition: service_healthy
+
+volumes:
+  hh_pgdata: {}
