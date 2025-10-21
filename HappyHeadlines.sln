@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsletterService", "NewsletterService\NewsletterService.csproj", "{2FC11906-AD26-470C-A16E-87EFEE5CFE13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentDatabase", "CommentDatabase\CommentDatabase.csproj", "{FAD034CB-7F97-47F8-B51A-BC1BA4A6E6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentService.Api", "CommentService.Api\CommentService.Api.csproj", "{64C1F430-86E0-4DAE-A32E-04241C06C1A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{2FC11906-AD26-470C-A16E-87EFEE5CFE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC11906-AD26-470C-A16E-87EFEE5CFE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC11906-AD26-470C-A16E-87EFEE5CFE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD034CB-7F97-47F8-B51A-BC1BA4A6E6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD034CB-7F97-47F8-B51A-BC1BA4A6E6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD034CB-7F97-47F8-B51A-BC1BA4A6E6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD034CB-7F97-47F8-B51A-BC1BA4A6E6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C1F430-86E0-4DAE-A32E-04241C06C1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C1F430-86E0-4DAE-A32E-04241C06C1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C1F430-86E0-4DAE-A32E-04241C06C1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C1F430-86E0-4DAE-A32E-04241C06C1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
