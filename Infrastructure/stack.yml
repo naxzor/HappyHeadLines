@@ -5,19 +5,54 @@ networks:
   app:  { driver: overlay }
 
 configs:
-  nginx_conf:
+  nginx_conf_v3:
     file: ./nginx.conf
 
 services:
   lb:
     image: nginx:alpine
     configs:
-      - source: nginx_conf
+      - source: nginx_conf_v3
         target: /etc/nginx/nginx.conf
     ports: ["8080:80"]
     networks: [edge, app]
     deploy: { replicas: 1 }
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "15672:15672"
+    networks: [ app ]
+    deploy: { replicas: 1 }
+  
+  jaeger:
+    image: jaegertracing/all-in-one:1.53
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+    networks: [ app ]
+    deploy: { replicas: 1 }
+    
+  newsletter-service:
+    image: hhnews/newslettersvc:1.0
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4317"
+    networks: [ app ]
+    deploy: { replicas: 1 }
+  
+  publisher-service:
+    image: hhnews/publishersvc:1.1
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4317"
+    networks: [ app ]
+    deploy: { replicas: 1 }
+    
   article-service:
     image: hhnews/articlesvc:1.2
     environment:

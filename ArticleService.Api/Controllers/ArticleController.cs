@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ArticleDatabase.Data;
 using ArticleDatabase.Models;
 using ArticleDatabase.Sharding;
+using Contracts;
 
 namespace ArticleService.Api.Controllers;
 
