@@ -5,8 +5,17 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var articleCacheConn =
+    builder.Configuration.GetConnectionString("ArticleCache")
+    ?? Environment.GetEnvironmentVariable("ARTICLE_CACHE")
+    ?? "article-cache:6379";
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    _ => ConnectionMultiplexer.Connect(articleCacheConn));
 
 builder.Services
     .AddControllers()
