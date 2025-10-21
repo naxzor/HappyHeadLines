@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Headlines</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header><h1>Happy Headlines</h1></header>
+
+<section id="controls">
+  <label>Region:</label>
+  <select id="region">
+    <option>EU</option><option>NA</option><option>SA</option>
+    <option>AF</option><option>AS</option><option>OC</option>
+    <option>GLOBAL</option>
+  </select>
+  <button id="reload">Reload</button>
+</section>
+
+<main class="grid">
+  <article id="focus"></article>
+  <aside>
+    <h2>Latest</h2>
+    <ul id="list"></ul>
+  </aside>
+</main>
+
+<section id="comments">
+  <h2>Comments</h2>
+  <ul id="comment-list"></ul>
+
+  <form id="comment-form">
+    <input type="text" id="author" placeholder="Your name" required />
+    <textarea id="text" placeholder="Your comment" required></textarea>
+    <button type="submit">Post comment</button>
+  </form>
+</section>
+
+<footer>© Happy Headlines</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
