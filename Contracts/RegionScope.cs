@@ -1,4 +1,4 @@
-namespace ArticleDatabase.Models;
+namespace Contracts;
 
 public enum RegionScope
 {
