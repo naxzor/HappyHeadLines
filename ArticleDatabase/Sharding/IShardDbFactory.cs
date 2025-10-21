@@ -1,5 +1,5 @@
 using ArticleDatabase.Data;
-using ArticleDatabase.Models;
+using Contracts;
 
 namespace ArticleDatabase.Sharding;
 
